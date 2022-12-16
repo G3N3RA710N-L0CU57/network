@@ -16,6 +16,8 @@ Compromised server is 172.0.0.5:33060 and the target is 172.16.0.10:3306.
 
 `./socat tcp-l:33060,fork,reuseaddr tcp:172.16.0.10:3306 &`
 
+## Static Binaries.  
+
 
 Static Linux binary.  
 
