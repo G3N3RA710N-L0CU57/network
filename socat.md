@@ -25,4 +25,25 @@ https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/soc
 
 Static Windows binary.  
 
-https://sourceforge.net/projects/unix-utils/files/socat/1.7.3.2/socat-1.7.3.2-1-x86_64.zip/download
+https://sourceforge.net/projects/unix-utils/files/socat/1.7.3.2/socat-1.7.3.2-1-x86_64.zip/download  
+
+## Connect.  
+
+Connect to a server on port 80.  
+
+`socat - TCP4:<REMOTE SERVER IP>:80`  
+
+Set up a listener on port 443, sudo is required on ports below 1024.  
+
+`sudo socat TCP4-LISTEN:443 STDOUT`  
+
+## File Transfers.  
+
+To set up a listener to share a file, fork creates a child process allowing multiple connections.  
+
+`sudo socat TCP4-LISTEN:443,fork file:secret_passwords.txt`  
+
+Retrieve the above file.  
+
+`socat TCP4:<REMOTE IP ADDRESS>:443 file:received_secret_passwords.txt,create`  
+
