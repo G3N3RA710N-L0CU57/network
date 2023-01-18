@@ -69,3 +69,13 @@ Perform a zone transfer.
 
 `dnsrecon -d fake-company.com -t axfr`  
 
+Bruteforce with a wordlist of subdomains.  
+
+`dnsrecon -d fake-company.com -D ~/list.txt -t brt`  
+
+
+## DNSEnum  
+
+Perform a zone transfer.  
+
+`dnsenum <domain name>`
