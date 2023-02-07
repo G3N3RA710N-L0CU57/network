@@ -22,3 +22,8 @@ Scan for vuln, be careful with unsafe scripts set to true.
 
 `nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1 10.11.1.5`  
 
+## anonymous login list shares  
+
+List shares with anonymous login.  
+
+`smbclient -L \\test.local -I 10.10.0.3 -N`
