@@ -14,6 +14,10 @@ To locate scripts.
 
 `ls -1 /usr/share/nmap/scripts/smb*`  
 
+Enumerate.  
+
+`nmap --script=smb-enum-* 10.11.1.246`
+
 OS detection.  
 
 `nmap -v -p 139, 445 --script=smb-os-discovery 10.11.1.227`  
@@ -27,3 +31,10 @@ Scan for vuln, be careful with unsafe scripts set to true.
 List shares with anonymous login.  
 
 `smbclient -L \\test.local -I 10.10.0.3 -N`
+
+## SMBmap  
+
+Enumerate  
+
+`smbmap -H 10.11.1.5`  
+
