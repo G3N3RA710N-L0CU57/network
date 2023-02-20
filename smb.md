@@ -32,9 +32,17 @@ List shares with anonymous login.
 
 `smbclient -L \\test.local -I 10.10.0.3 -N`
 
+List with anon.  
+
+`smbclient -L '//10.11.1.146/'`  
+
 ## SMBmap  
 
 Enumerate  
 
 `smbmap -H 10.11.1.5`  
+
+## Connect to a share.  
+
+`smbclient '//10.11.1.13/SusieShare'`  
 
